@@ -74,8 +74,8 @@ type KubernetesAttack struct {
 	Attack     AttackDefinition `json:"attack"`
 }
 
-func (c *Client) ListKubernetesAttacks() (*ListKubernetesAttacksResponse, error) {
-	resp, err := c.get("/kubernetes/attacks?source=Adhoc")
+func (c *Client) ListKubernetesAttacks(team_id string) (*ListKubernetesAttacksResponse, error) {
+	resp, err := c.get("/kubernetes/attacks?source=Adhoc&teamId=" + team_id)
 	if err != nil {
 		return nil, err
 	}
